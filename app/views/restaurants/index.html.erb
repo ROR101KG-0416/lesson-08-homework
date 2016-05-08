@@ -1,0 +1,22 @@
+<div style="margin: 5px auto; width: 500px;">
+  <h1 style="text-align: center">All Restaurants'  Name</h1>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>More options</th>
+      </tr>
+      <tbody>
+      <% @restaurant.each do |restaurant| %>
+        <tr>
+          <td><%= restaurant.id %></td>
+          <td><%= link_to restaurant.name, restaurant_path(restaurant) %></td>
+         <td><%= link_to "edit", edit_restaurant_path(restaurant)%>  <%= link_to "delete", restaurant_path(restaurant), method: :delete, data: {confirm: "Are you sure you wanna delete this?"} %></td>
+          
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  <br>
+  <button style="background-color: #cbf797; display: block"><%= link_to "Create Your Restaurant", new_restaurant_path %></button>
+</div>

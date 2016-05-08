@@ -1,0 +1,27 @@
+<h1>Restaurant's Destails</h1>
+<table>
+<% if @restaurant %>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Street</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Postal Code</th>
+  </tr>
+  <tbody>
+    <tr>
+      <td><%= @restaurant.id %></td>
+      <td><%= @restaurant.name %></td>
+      <td><%= @restaurant.street %></td>
+      <td><%= @restaurant.city %></td>
+      <td><%= @restaurant.state %></td>
+      <td><%= @restaurant.country %></td>
+      <td><%= @restaurant.postal_code %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<br>
+<button style="background-color: #cbf797; display: block"><%= link_to "Go Back Listings", restaurants_path %></button>
