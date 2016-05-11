@@ -1,0 +1,38 @@
+<h1>Restaurants</h1>
+
+<%= link_to "Go to Restaurants list", restaurants_path %>
+
+<%= form_for @restaurant do |r| %>
+  
+  <p>
+    <%= r.label :name %>
+    <%= r.text_field :name %>
+  </p>
+
+  <p>
+    <%= r.label :street %>
+    <%= r.text_field :street %>
+  </p>
+
+  <p>
+    <%= r.label :city %>
+    <%= r.text_field :city %>
+  </p>
+
+  <p>
+    <%= r.label :state %>
+    <%= r.text_field :state %>
+  </p>
+
+  <p>
+    <%= r.label :country %>
+    <%= r.text_field :country %>
+  </p>
+
+  <p>
+    <%= r.label :postal_code %>
+    <%= r.text_field :postal_code %>
+  </p>
+
+  <%= r.submit %>      
+<% end %>
