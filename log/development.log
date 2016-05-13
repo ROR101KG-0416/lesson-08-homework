@@ -1,0 +1,1748 @@
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateRestaurants (20160513161024)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "restaurants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "street" varchar, "city" varchar, "state" varchar, "country" varchar, "postal_code" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160513161024"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "restaurants" ("name", "street", "city", "state", "country", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Shake Shack"], ["street", "a"], ["city", "b"], ["state", "c"], ["country", "d"], ["postal_code", "e"], ["created_at", "2016-05-13 16:18:44.934366"], ["updated_at", "2016-05-13 16:18:44.934366"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[36mRestaurant Load (1.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "restaurants" ("name", "street", "city", "state", "country", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Shake Shack"], ["street", "154 E 86th St."], ["city", "New York"], ["state", "NY"], ["country", "USA"], ["postal_code", "10028"], ["created_at", "2016-05-13 16:36:45.707735"], ["updated_at", "2016-05-13 16:36:45.707735"]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "restaurants" ("name", "street", "city", "state", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["name", "In N Out"], ["street", "382 N. Clovis Ave."], ["city", "Clovis"], ["state", "CA"], ["postal_code", "93612"], ["created_at", "2016-05-13 16:41:19.493358"], ["updated_at", "2016-05-13 16:41:19.493358"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "restaurants" ("name", "street", "city", "state", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Chick-fil-A"], ["street", "1000 Ave of the Americas"], ["city", "New York"], ["state", "NY"], ["postal_code", "10018"], ["created_at", "2016-05-13 16:44:28.384448"], ["updated_at", "2016-05-13 16:44:28.384448"]]
+  [1m[35m (2.6ms)[0m  commit transaction
+
+
+Started GET "/" for ::1 at 2016-05-13 12:50:48 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (3.0ms)
+Completed 200 OK in 19ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 12:50:56 -0400
+Processing by RestaurantsController#index as HTML
+  Rendered restaurants/index.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/index.html.erb:21: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;     end 
+                 ^
+/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/index.html.erb:24: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/index.html.erb:26: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/restaurants/index.html.erb:21: syntax error, unexpected keyword_end, expecting ')'
+  app/views/restaurants/index.html.erb:24: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/restaurants/index.html.erb:26: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (47.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (100.4ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 12:51:57 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 1321ms (Views: 1319.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-13 12:51:58 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-13 12:51:58 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-13 12:51:58 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-13 12:51:58 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-05-13 12:51:58 -0400
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 12:52:04 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 38ms (Views: 22.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 12:54:58 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-13 12:54:58 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-13 12:54:58 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-05-13 12:54:58 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-13 12:54:58 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-13 12:54:58 -0400
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 12:55:00 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+...taurants list' restaurants_path );@output_buffer.safe_append...
+...                               ^):
+  app/views/restaurants/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (81.3ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 12:55:00 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms)
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+...taurants list' restaurants_path );@output_buffer.safe_append...
+...                               ^):
+  app/views/restaurants/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (38.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (82.6ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 12:55:45 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (26.8ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined local variable or method `restaurant' for #<#<Class:0x007fc29c762508>:0x007fc2a01b3e78>
+Did you mean?  @restaurant):
+    1: <% if @restaurant %>
+    2: 
+    3:   <h1><%= restaurant.name %></h1>
+    4:   <p><%= restaurant.street %></p>
+    5:   <p><%= restaurant.city %></p>
+    6:   <p><%= restaurant.state %></p>
+  app/views/restaurants/show.html.erb:3:in `_app_views_restaurants_show_html_erb___1177045480058223152_70236943157240'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (47.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (85.5ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 12:57:12 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (26.3ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined local variable or method `restaurant' for #<#<Class:0x007fc29c762508>:0x007fc2a07730e8>
+Did you mean?  @restaurant):
+    1: <% if @restaurant %>
+    2: 
+    3:   <h1><%= restaurant.name %></h1>
+    4:   <p><%= restaurant.street %></p>
+    5:   <p><%= restaurant.city %></p>
+    6:   <p><%= restaurant.state %></p>
+  app/views/restaurants/show.html.erb:3:in `_app_views_restaurants_show_html_erb___1177045480058223152_70236943157240'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (49.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (39.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (85.3ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2016-05-13 12:57:21 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (41.9ms)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined local variable or method `restaurant' for #<#<Class:0x007fc29c762508>:0x007fc2a15d0690>
+Did you mean?  @restaurant):
+    1: <% if @restaurant %>
+    2: 
+    3:   <h1><%= restaurant.name %></h1>
+    4:   <p><%= restaurant.street %></p>
+    5:   <p><%= restaurant.city %></p>
+    6:   <p><%= restaurant.state %></p>
+  app/views/restaurants/show.html.erb:3:in `_app_views_restaurants_show_html_erb___1177045480058223152_70236953794860'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (42.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (79.9ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2016-05-13 12:57:21 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (25.0ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined local variable or method `restaurant' for #<#<Class:0x007fc29c762508>:0x007fc29c42d338>
+Did you mean?  @restaurant):
+    1: <% if @restaurant %>
+    2: 
+    3:   <h1><%= restaurant.name %></h1>
+    4:   <p><%= restaurant.street %></p>
+    5:   <p><%= restaurant.city %></p>
+    6:   <p><%= restaurant.state %></p>
+  app/views/restaurants/show.html.erb:3:in `_app_views_restaurants_show_html_erb___1177045480058223152_70236943157240'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (43.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (86.4ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2016-05-13 12:58:34 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/show.html.erb:1: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...uffer.append=( if @restaurant );@output_buffer.safe_append='
+...                               ^
+/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/show.html.erb:9: syntax error, unexpected keyword_else, expecting ')'
+'.freeze; else 
+              ^
+/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/show.html.erb:13: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end ;@output_buffer.to_s
+             ^
+/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/show.html.erb:14: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/show.html.erb:16: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/restaurants/show.html.erb:1: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+  app/views/restaurants/show.html.erb:9: syntax error, unexpected keyword_else, expecting ')'
+  app/views/restaurants/show.html.erb:13: syntax error, unexpected keyword_end, expecting ')'
+  app/views/restaurants/show.html.erb:14: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/restaurants/show.html.erb:16: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (84.5ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2016-05-13 12:58:40 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (29.7ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined local variable or method `restaurant' for #<#<Class:0x007fc29c762508>:0x007fc2a1383888>
+Did you mean?  @restaurant):
+    1: <% if @restaurant %>
+    2: 
+    3:   <h1><%= restaurant.name %></h1>
+    4:   <p><%= restaurant.street %></p>
+    5:   <p><%= restaurant.city %></p>
+    6:   <p><%= restaurant.state %></p>
+  app/views/restaurants/show.html.erb:3:in `_app_views_restaurants_show_html_erb___1177045480058223152_70236952597140'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (46.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (38.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (81.9ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2016-05-13 13:00:53 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (28.5ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined local variable or method `restaurant' for #<#<Class:0x007fc29c762508>:0x007fc2a2b1c850>
+Did you mean?  @restaurant):
+    1: <% if @restaurant %>
+    2: 
+    3:   <h1><%= restaurant.name %></h1>
+    4:   <p><%= restaurant.street %></p>
+    5:   <p><%= restaurant.city %></p>
+    6:   <p><%= restaurant.state %></p>
+  app/views/restaurants/show.html.erb:3:in `_app_views_restaurants_show_html_erb___1177045480058223152_70236964993620'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (43.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (84.5ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 13:00:56 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRestaurant Load (0.4ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (29.7ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined local variable or method `restaurant' for #<#<Class:0x007fc29c762508>:0x007fc2a05d9930>
+Did you mean?  @restaurant):
+    1: <% if @restaurant %>
+    2: 
+    3:   <h1><%= restaurant.name %></h1>
+    4:   <p><%= restaurant.street %></p>
+    5:   <p><%= restaurant.city %></p>
+    6:   <p><%= restaurant.state %></p>
+  app/views/restaurants/show.html.erb:3:in `_app_views_restaurants_show_html_erb___1177045480058223152_70236945421440'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (45.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (86.7ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 13:00:56 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (28.4ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined local variable or method `restaurant' for #<#<Class:0x007fc29c762508>:0x007fc2a15dbb08>
+Did you mean?  @restaurant):
+    1: <% if @restaurant %>
+    2: 
+    3:   <h1><%= restaurant.name %></h1>
+    4:   <p><%= restaurant.street %></p>
+    5:   <p><%= restaurant.city %></p>
+    6:   <p><%= restaurant.state %></p>
+  app/views/restaurants/show.html.erb:3:in `_app_views_restaurants_show_html_erb___1177045480058223152_70236964993620'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (46.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (79.2ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 13:01:22 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-13 13:01:22 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-13 13:01:22 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-13 13:01:22 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-13 13:01:22 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-05-13 13:01:22 -0400
+
+
+Started GET "/restaurants/5" for ::1 at 2016-05-13 13:02:35 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered restaurants/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/restaurants/" for ::1 at 2016-05-13 13:02:38 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/restaurants/4" for ::1 at 2016-05-13 13:02:41 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered restaurants/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/restaurants/" for ::1 at 2016-05-13 13:03:02 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-13 13:03:02 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-13 13:03:02 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-13 13:03:02 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-13 13:03:02 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-05-13 13:03:02 -0400
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 13:03:03 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms)
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+...taurants list' restaurants_path );@output_buffer.safe_append...
+...                               ^):
+  app/views/restaurants/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (34.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (77.7ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 13:03:03 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+...taurants list' restaurants_path );@output_buffer.safe_append...
+...                               ^):
+  app/views/restaurants/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (42.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (89.7ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 13:04:40 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+...taurants list' restaurants_path) );@output_buffer.safe_appen...
+...                               ^):
+  app/views/restaurants/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (82.7ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 13:04:51 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms)
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/views/restaurants/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+...taurants list' restaurants_path(restaurants) );@output_buffe...
+...                               ^):
+  app/views/restaurants/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (84.9ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 13:05:00 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-13 13:05:00 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-13 13:05:00 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-13 13:05:00 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-05-13 13:05:00 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-13 13:05:00 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-13 13:05:01 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-05-13 13:05:01 -0400
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 13:05:02 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/restaurants/4" for ::1 at 2016-05-13 13:05:04 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered restaurants/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2016-05-13 13:05:05 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 13:05:06 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:18:32 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 34ms (Views: 31.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-13 16:18:32 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-13 16:18:32 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-05-13 16:18:33 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-13 16:18:33 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-13 16:18:33 -0400
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 16:18:35 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:18:36 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 26ms (Views: 25.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/restaurants/2/edit" for ::1 at 2016-05-13 16:18:38 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  Rendered restaurants/edit.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <%= link_to "Return to restaurants list", restaurants_path %>
+    4: 
+    5: <%= form_for @restaurant, url: {action: :update} do |f| %>
+    6:   <p>
+    7:     <%= f.label :name %><br>
+    8:     <%= f.text_field :name %>
+  app/views/restaurants/edit.html.erb:5:in `_app_views_restaurants_edit_html_erb___1290857216914300781_70236946468680'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (44.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (34.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (85.7ms)
+
+
+Started GET "/restaurants/2/edit" for ::1 at 2016-05-13 16:18:38 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  Rendered restaurants/edit.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <%= link_to "Return to restaurants list", restaurants_path %>
+    4: 
+    5: <%= form_for @restaurant, url: {action: :update} do |f| %>
+    6:   <p>
+    7:     <%= f.label :name %><br>
+    8:     <%= f.text_field :name %>
+  app/views/restaurants/edit.html.erb:5:in `_app_views_restaurants_edit_html_erb___1290857216914300781_70236915252260'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (44.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (78.9ms)
+
+
+Started GET "/restaurants/4" for ::1 at 2016-05-13 16:19:00 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered restaurants/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/restaurants/4/edit" for ::1 at 2016-05-13 16:19:00 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  Rendered restaurants/edit.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <%= link_to "Return to restaurants list", restaurants_path %>
+    4: 
+    5: <%= form_for @restaurant, url: {action: :update} do |f| %>
+    6:   <p>
+    7:     <%= f.label :name %><br>
+    8:     <%= f.text_field :name %>
+  app/views/restaurants/edit.html.erb:5:in `_app_views_restaurants_edit_html_erb___1290857216914300781_70236946468680'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (43.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (35.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (84.5ms)
+
+
+Started GET "/restaurants/4/edit" for ::1 at 2016-05-13 16:19:01 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  Rendered restaurants/edit.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <%= link_to "Return to restaurants list", restaurants_path %>
+    4: 
+    5: <%= form_for @restaurant, url: {action: :update} do |f| %>
+    6:   <p>
+    7:     <%= f.label :name %><br>
+    8:     <%= f.text_field :name %>
+  app/views/restaurants/edit.html.erb:5:in `_app_views_restaurants_edit_html_erb___1290857216914300781_70236915252260'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (49.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (35.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (86.6ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:22:46 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:23:24 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-13 16:23:24 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-13 16:23:24 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-13 16:23:24 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-13 16:23:24 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-05-13 16:23:24 -0400
+
+
+Started GET "/restaurants/new" for ::1 at 2016-05-13 16:23:25 -0400
+Processing by RestaurantsController#new as HTML
+  Rendered restaurants/new.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for ::1 at 2016-05-13 16:23:47 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OhK1gsmlCHK7magJe7NFBReXhelrcOdO+64P3TiGelceyznuzBPoG7y9NQAIjn7rqITXcOspaWFxXv3Xoy/1ww==", "restaurant"=>{"name"=>"ABC", "street"=>"123", "city"=>"New York", "state"=>"NY", "postal_code"=>"11373"}, "commit"=>"Create Restaurant"}
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `restaurant_params' for #<RestaurantsController:0x007fc2a2cbfb80>
+Did you mean?  restaurant_path
+               restaurant_url
+               restaurants_path):
+  app/controllers/restaurants_controller.rb:15:in `create'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (80.4ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:25:27 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2016-05-13 16:25:28 -0400
+Processing by RestaurantsController#new as HTML
+  Rendered restaurants/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for ::1 at 2016-05-13 16:25:38 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UERx9wzrkzwNCJaF/fcbCzerK+5rM0eL2RJkxNcocDl0nf2bCV1zVQosC4yOyiDliLh5d+tqyaRT4pbOTIH/rQ==", "restaurant"=>{"name"=>"ABC", "street"=>"123", "city"=>"NYC", "state"=>"NY", "postal_code"=>"11373"}, "commit"=>"Create Restaurant"}
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `restaurant_params' for #<RestaurantsController:0x007fc2a1439598>
+Did you mean?  restaurant_path
+               restaurant_url
+               restaurants_path):
+  app/controllers/restaurants_controller.rb:15:in `create'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (39.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (82.8ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:29:25 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.3ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 25ms (Views: 22.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2016-05-13 16:29:27 -0400
+Processing by RestaurantsController#new as HTML
+  Rendered restaurants/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for ::1 at 2016-05-13 16:29:36 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zVqJiAQVTM5hnjEtEZD983O0zvBM/5MW/1EvJc56Z7TpgwXkAaOsp2a6rCRircYdzKecacymHTl1od0vVdPoIA==", "restaurant"=>{"name"=>"ABC", "street"=>"123", "city"=>"Kappa", "state"=>"NY", "postal_code"=>"11721"}, "commit"=>"Create Restaurant"}
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `restaurant_params' for #<RestaurantsController:0x007fc2a2c0c670>
+Did you mean?  restaurant_path
+               restaurant_url
+               restaurants_path):
+  app/controllers/restaurants_controller.rb:15:in `create'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (38.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (87.0ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:29:39 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.4ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 69ms (Views: 67.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/restaurants/2/edit" for ::1 at 2016-05-13 16:29:41 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  Rendered restaurants/edit.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <%= link_to "Return to restaurants list", restaurants_path %>
+    4: 
+    5: <%= form_for @restaurant, url: {action: :update} do |f| %>
+    6:   <p>
+    7:     <%= f.label :name %><br>
+    8:     <%= f.text_field :name %>
+  app/views/restaurants/edit.html.erb:5:in `_app_views_restaurants_edit_html_erb___1290857216914300781_70236946468680'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (44.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (35.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (79.5ms)
+
+
+Started GET "/restaurants/2/edit" for ::1 at 2016-05-13 16:29:41 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  Rendered restaurants/edit.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <%= link_to "Return to restaurants list", restaurants_path %>
+    4: 
+    5: <%= form_for @restaurant, url: {action: :update} do |f| %>
+    6:   <p>
+    7:     <%= f.label :name %><br>
+    8:     <%= f.text_field :name %>
+  app/views/restaurants/edit.html.erb:5:in `_app_views_restaurants_edit_html_erb___1290857216914300781_70236915252260'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (46.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (81.3ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2016-05-13 16:31:59 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 22ms (Views: 14.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/restaurants/3/edit" for ::1 at 2016-05-13 16:32:00 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  Rendered restaurants/edit.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <%= link_to "Return to restaurants list", restaurants_path %>
+    4: 
+    5: <%= form_for @restaurant, url: {action: :update} do |f| %>
+    6:   <p>
+    7:     <%= f.label :name %><br>
+    8:     <%= f.text_field :name %>
+  app/views/restaurants/edit.html.erb:5:in `_app_views_restaurants_edit_html_erb___1290857216914300781_70236946468680'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (10.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (35.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (76.7ms)
+
+
+Started GET "/restaurants/3/edit" for ::1 at 2016-05-13 16:32:00 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  Rendered restaurants/edit.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <%= link_to "Return to restaurants list", restaurants_path %>
+    4: 
+    5: <%= form_for @restaurant, url: {action: :update} do |f| %>
+    6:   <p>
+    7:     <%= f.label :name %><br>
+    8:     <%= f.text_field :name %>
+  app/views/restaurants/edit.html.erb:5:in `_app_views_restaurants_edit_html_erb___1290857216914300781_70236915252260'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (47.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (84.3ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:34:08 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.9ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 52ms (Views: 49.0ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/restaurants/4" for ::1 at 2016-05-13 16:34:13 -0400
+
+AbstractController::ActionNotFound (The action 'destroy' could not be found for RestaurantsController):
+  actionpack (4.2.6) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/alexc/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/alexc/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/alexc/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (38.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (84.3ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:34:40 -0400
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/controllers/restaurants_controller.rb:54: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/restaurants_controller.rb:54: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (41.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (34.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (78.2ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:35:10 -0400
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/controllers/restaurants_controller.rb:55: syntax error, unexpected ',', expecting keyword_end):
+  app/controllers/restaurants_controller.rb:55: syntax error, unexpected ',', expecting keyword_end
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (42.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (38.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (86.7ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:35:14 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-13 16:35:14 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-13 16:35:14 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-13 16:35:14 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-13 16:35:14 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-05-13 16:35:14 -0400
+
+
+Started GET "/restaurants/new" for ::1 at 2016-05-13 16:35:16 -0400
+Processing by RestaurantsController#new as HTML
+  Rendered restaurants/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/restaurants/2/edit" for ::1 at 2016-05-13 16:35:18 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  Rendered restaurants/edit.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <%= link_to "Return to restaurants list", restaurants_path %>
+    4: 
+    5: <%= form_for @restaurant, url: {action: :update} do |f| %>
+    6:   <p>
+    7:     <%= f.label :name %><br>
+    8:     <%= f.text_field :name %>
+  app/views/restaurants/edit.html.erb:5:in `_app_views_restaurants_edit_html_erb___1290857216914300781_70236946468680'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (44.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (34.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (76.0ms)
+
+
+Started GET "/restaurants/2/edit" for ::1 at 2016-05-13 16:35:19 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  Rendered restaurants/edit.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <%= link_to "Return to restaurants list", restaurants_path %>
+    4: 
+    5: <%= form_for @restaurant, url: {action: :update} do |f| %>
+    6:   <p>
+    7:     <%= f.label :name %><br>
+    8:     <%= f.text_field :name %>
+  app/views/restaurants/edit.html.erb:5:in `_app_views_restaurants_edit_html_erb___1290857216914300781_70236915252260'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (44.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (35.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (79.8ms)
+
+
+Started GET "/restaurants/2/edit" for ::1 at 2016-05-13 16:40:25 -0400
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/controllers/restaurants_controller.rb:54: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/restaurants_controller.rb:54: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (39.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (83.3ms)
+
+
+Started GET "/restaurant" for ::1 at 2016-05-13 16:40:30 -0400
+
+ActionController::RoutingError (No route matches [GET] "/restaurant"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/alexc/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/alexc/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/alexc/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (62.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (35.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (78.9ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:40:33 -0400
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/controllers/restaurants_controller.rb:54: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/restaurants_controller.rb:54: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (35.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (80.8ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:40:41 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-13 16:40:41 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-05-13 16:40:41 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-13 16:40:41 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-13 16:40:41 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-13 16:40:41 -0400
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:42:03 -0400
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/controllers/restaurants_controller.rb:53: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/restaurants_controller.rb:53: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (41.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.7ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (81.2ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:42:18 -0400
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/controllers/restaurants_controller.rb:52: syntax error, unexpected end-of-input, expecting keyword_end
+  end
+     ^):
+  app/controllers/restaurants_controller.rb:52: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.9ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (42.6ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (87.0ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:42:50 -0400
+
+SyntaxError (/Users/alexc/Desktop/NYCDA/ror_101/lesson_08/github/lesson-08-homework/app/controllers/restaurants_controller.rb:53: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/restaurants_controller.rb:53: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (39.3ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/alexc/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (84.7ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:43:00 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.3ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 26ms (Views: 22.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-13 16:43:01 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-13 16:43:01 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-13 16:43:01 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-13 16:43:01 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-05-13 16:43:01 -0400
+
+
+Started GET "/restaurants/new" for ::1 at 2016-05-13 16:43:02 -0400
+Processing by RestaurantsController#new as HTML
+  Rendered restaurants/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/restaurants/2/edit" for ::1 at 2016-05-13 16:43:07 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered restaurants/edit.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 26ms (Views: 23.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/restaurants/2" for ::1 at 2016-05-13 16:43:11 -0400
+Processing by RestaurantsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YI2fJ64J4RsYfBBlo93UCk3PnvxG22oOVQOL5K7ervpEVBNLq78Bch9YjWzQ4O/k8tzMZcaC5CHf83nuNXchbg==", "restaurant"=>{"name"=>"Shake Shacks", "street"=>"154 E 86th St.", "city"=>"New York", "state"=>"NY", "postal_code"=>"10028"}, "commit"=>"Update Restaurant", "id"=>"2"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "restaurants" SET "name" = ?, "updated_at" = ? WHERE "restaurants"."id" = ?[0m  [["name", "Shake Shacks"], ["updated_at", "2016-05-13 20:43:11.260626"], ["id", 2]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/restaurants/2
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2016-05-13 16:43:11 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:43:13 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/restaurants/2" for ::1 at 2016-05-13 16:43:18 -0400
+Processing by RestaurantsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PFJLFhP+JRcPNAu/qLJVRjnfJ59RPusSLCEiQae9cEcYi8d6FkjFfggQlrbbj26ohsx1BtFnZT2m0dBLPBT/0w==", "id"=>"2"}
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSQL (2.8ms)[0m  DELETE FROM "restaurants" WHERE "restaurants"."id" = ?  [["id", 2]]
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 6ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:43:18 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2016-05-13 16:43:20 -0400
+Processing by RestaurantsController#new as HTML
+  Rendered restaurants/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for ::1 at 2016-05-13 16:43:53 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BJPk4OZRmxAGnZ3oQOzrk7LC0TFrnGz4v7D8ZR4Nk/8gSmiM4+d7eQG5AOEz0dB9DdGDqOvF4tc1QA5vhaQcaw==", "restaurant"=>{"name"=>"Shake Shack", "street"=>"123 Ave", "city"=>"New Haven", "state"=>"CT", "postal_code"=>"43172"}, "commit"=>"Create Restaurant"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered restaurants/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 28ms (Views: 23.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/restaurants" for ::1 at 2016-05-13 16:44:02 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VShIDjguh+ujEOw0QH/fczUiTEaaNdxSPSk6KT6XTpFx8cRiPZhngqQ0cT0zQuSdijEe3xpsUn232cgjpT7BBQ==", "restaurant"=>{"name"=>"Shake Shack", "street"=>"123 Ave", "city"=>"New Haven", "state"=>"CT", "postal_code"=>"43172"}, "commit"=>"Create Restaurant"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered restaurants/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 32ms (Views: 27.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/restaurants" for ::1 at 2016-05-13 16:44:06 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2n5O+sA9Olcy+RZFL0RXFLz2sy5A9LyegOdQtNMl0fb+p8KWxYvaPjXdi0xceWz6A+Xht8CtMrEKF6K+SIxeYg==", "restaurant"=>{"name"=>"Shake Shacka", "street"=>"123 Ave", "city"=>"New Haven", "state"=>"CT", "postal_code"=>"43172"}, "commit"=>"Create Restaurant"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered restaurants/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 19ms (Views: 15.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/restaurants" for ::1 at 2016-05-13 16:44:27 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6ssS4saFkQwQiR5FG4E6z0Qkj0V99PBJ+d8qowEOlwTOEp6OwzNxZRetg0xovAEh+zfd3P2tfmZzL9ipmqcYkA==", "restaurant"=>{"name"=>"Shake Shacka", "street"=>"123 Ave", "city"=>"New Haven", "state"=>"CT", "postal_code"=>"43172"}, "commit"=>"Create Restaurant"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "restaurants" ("name", "street", "city", "state", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Shake Shacka"], ["street", "123 Ave"], ["city", "New Haven"], ["state", "CT"], ["postal_code", "43172"], ["created_at", "2016-05-13 20:44:27.339506"], ["updated_at", "2016-05-13 20:44:27.339506"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 13ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:44:27 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/restaurants/5" for ::1 at 2016-05-13 16:44:32 -0400
+Processing by RestaurantsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bfar0J8MBeEtXIGEvSsD6a+OFtuh/BzrVkjW00yCo3hJLye8mrrliCp4HI3OFjgHEJ1EQiGlksTcuCTZ1yss7A==", "id"=>"5"}
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mSQL (1.8ms)[0m  [1mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 5]]
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:44:32 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/restaurants/3/edit" for ::1 at 2016-05-13 16:44:36 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered restaurants/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/restaurants/3" for ::1 at 2016-05-13 16:44:38 -0400
+Processing by RestaurantsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2OEhCvIAF1B5pFkMD6x9t15Fd5O7iSspLYO/PP/5gIX8OK1m97b3OX6AxAV8kUZZ4VYlCjvQpQanc002ZFAPEQ==", "restaurant"=>{"name"=>"In N Outa", "street"=>"382 N. Clovis Ave.", "city"=>"Clovis", "state"=>"CA", "postal_code"=>"93612"}, "commit"=>"Update Restaurant", "id"=>"3"}
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "restaurants" SET "name" = ?, "updated_at" = ? WHERE "restaurants"."id" = ?  [["name", "In N Outa"], ["updated_at", "2016-05-13 20:44:38.451249"], ["id", 3]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/restaurants/3
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2016-05-13 16:44:38 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:44:40 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/restaurants/3/edit" for ::1 at 2016-05-13 16:44:42 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered restaurants/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/restaurants/3" for ::1 at 2016-05-13 16:44:45 -0400
+Processing by RestaurantsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Le3ZxYzS/oQ6XzFe35vMAuP5mO5wMbhmdWPEeRz25NEJNFWpiWQe7T17rFespvfsXOrKd/BoNkn/kzZzh19rRQ==", "restaurant"=>{"name"=>"In N Outa", "street"=>"382 N. Clovis Ave.", "city"=>"Clovis", "state"=>"CA", "postal_code"=>"93612"}, "commit"=>"Update Restaurant", "id"=>"3"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/restaurants/3
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2016-05-13 16:44:45 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/restaurants/3/edit" for ::1 at 2016-05-13 16:44:45 -0400
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered restaurants/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/restaurants" for ::1 at 2016-05-13 16:44:46 -0400
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.8ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 26ms (Views: 24.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2016-05-13 16:44:47 -0400
+Processing by RestaurantsController#new as HTML
+  Rendered restaurants/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.0ms)
