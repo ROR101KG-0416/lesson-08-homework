@@ -1,0 +1,16 @@
+<h1>Restaurants</h1>
+
+​
+<table>
+  <tr>
+    <th>Restaurants</th>
+  </tr>
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= link_to(restaurant.name, restaurant_path(restaurant)) %></td>
+        <td><%= restaurant.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
