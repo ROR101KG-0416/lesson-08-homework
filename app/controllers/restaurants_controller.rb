@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  
   def index
     @restaurant = Restaurant.all
   end
@@ -17,24 +18,13 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.create(restaurant_params)
-    if @restaurant.save 
-      redirect_to root_path
-      flash[:notice] = "Saving was succefull"
-    else 
-      flash[:error] = "There was an error occured"
-    end
+    redirect_to root_path 
   end
 
   def update
     @restaurant = Restaurant.find(params[:id])
-    if @restaurant.update(restaurant_params)
-      redirect_to restaurant_path(@restaurant)
-      flash[:notice] = "Character was successfully updated"
-    else
-    flash.now[:error] = "An error prevented the character from being updated"     
-    render :edit
+    redirect_to restaurant_path(@restaurant)
   end
- end
 
   def destroy
     @restaurant = Restaurant.find(params[:id])
@@ -43,8 +33,7 @@ class RestaurantsController < ApplicationController
   end
 
   private 
-
   def restaurant_params
-  params.require(:restaurant).permit(:name, :street, :city, :state, :country, :postal_code)
+    params.require(:restaurant).permit(:name, :street, :city, :state, :country, :postal_code)
   end
 end
