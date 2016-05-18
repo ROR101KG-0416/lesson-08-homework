@@ -17,29 +17,25 @@ class RestaurantsController < ApplicationController
  
    def create
      @restaurant = Restaurant.create(restaurant_params)
-     if @restaurant.save 
-       redirect_to root_path
-       flash[:notice] = "Restaurant  was  saved  successfully"
-     else 
-       flash[:error] = "Restaurant was not saved because an error occured"
-     end
+       @restaurant.save 
+         redirect_to root_path
    end
  
    def update
      @restaurant = Restaurant.find_by_id(params[:id])
-         Restaurant.update(restaurant_params)
+       @restaurant.update(restaurant_params)
          redirect_to restaurant_path(@restaurant)
-  end 
+   end 
 
    def destroy
      @restaurant = Restaurant.find(params[:id])
-     @restaurant.delete
-     redirect_to restaurants_path
+       @restaurant.delete
+         redirect_to restaurants_path
    end
  
    private 
  
    def restaurant_params
-   params.require(:restaurant).permit(:name, :street, :city, :state, :country, :postal_code)
+     params.require(:restaurant).permit(:name, :street, :city, :state, :country, :postal_code)
    end
  end
