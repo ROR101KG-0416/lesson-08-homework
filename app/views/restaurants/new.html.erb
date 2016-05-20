@@ -1,0 +1,27 @@
+<h1>Add New Resaurant</h1>
+<%= link_to "Back to Restaurant List", restaurants_path %>
+
+
+ <%= form_for @restaurant, url: {action: :create} do |f| %>  
+   <p>
+     <%= f.label :name %><br>
+     <%= f.text_field :name %>
+   </p>
+   <p>
+     <%= f.label :street %><br>
+     <%= f.text_field :street %>
+  </p>
+   <p>
+     <%= f.label :city %><br>
+     <%= f.text_field :city %>
+  </p>
+   <p>
+     <%= f.label :country %><br>
+     <%= f.text_field :country %>
+   </p>
+   <p>
+     <%= f.label :postal_code %><br>
+     <%= f.text_field :postal_code %>
+   </p>
+   <%= f.submit "Create" %>
+<% end %>
