@@ -1,12 +1,12 @@
 <%= link_to 'return to restaurant list', restaurants_path %>
 
-<% if @restaurants %>
+<% if @restaurant %>
 
-  <h1><%= @restaurants.name %></h1>
-  <p><%= @restaurants.street %></p>
-  <p><%= @restaurants.city %></p>
-  <p><%= @restaurants.country %></p>
-  <p><%= @restaurants.postal_code %></p>
+  <h1><%= @restaurant.name %></h1>
+  <p><%= @restaurant.street %></p>
+  <p><%= @restaurant.city %></p>
+  <p><%= @restaurant.country %></p>
+  <p><%= @restaurant.postal_code %></p>
 
 <% else %>
 
