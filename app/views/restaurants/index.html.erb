@@ -1,1 +1,7 @@
 <h1>NJ Restaurants</h1>
+
+<% @restaurants.each do |restaurant| %>
+    <span>
+      <h3><i><%= restaurant.name %></i></h3>
+    </span>
+<% end %> 
